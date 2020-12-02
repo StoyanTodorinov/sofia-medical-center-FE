@@ -1,0 +1,14 @@
+.input-group-prepend {
+    width : 35%; /*adjust as needed*/
+    background-color: white;
+}
+
+.input-group-text {
+    background: white;
+    border: none;
+}
+  
+.input-group-prepend label {
+    width: 100%;
+    overflow: hidden;
+}

@@ -1,0 +1,25 @@
+<table class="table table-hover" *ngIf="dnaTests && dnaTests.length">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">DNA</th>
+            <th scope="col">Result</th>
+            <th scope="col">Patient Name</th>
+            <th scope="col">Patient phone number</th>
+            <th scope="col">See more</th>
+            <th scope="col">Redo test</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dnaTest of dnaTests">
+            <th scope="row">{{dnaTest.name}}</th>
+            <td>{{dnaTest.dna | slice:0:10}}...</td>
+            <td>{{dnaTest.testResult | number: '1.2-2'}}</td>
+            <td>{{dnaTest.patientName}}</td>
+            <td>{{dnaTest.patientPhoneNumber}}</td>
+            <td><a class="btn btn-outline-primary" [routerLink]="['/details', dnaTest.id]">Details</a></td>
+            <td><a class="btn btn-outline-primary" [routerLink]="['/redo-test', dnaTest.id]">Redo</a></td>
+        </tr>
+    </tbody>
+</table>
+<h3 class="m-5" *ngIf="!dnaTests || (dnaTests && !dnaTests.length)">No tests</h3>

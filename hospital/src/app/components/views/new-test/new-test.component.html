@@ -1,0 +1,119 @@
+<div class="m-5 w-50">
+    <form [formGroup]="form" (ngSubmit)="createTest()">
+        <h3>Submit a new test</h3>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Name</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter test name"
+                formControlName="name">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['name'].hasError('required') 
+            && form.controls['name'].touched">
+                Name is required
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['name'].hasError('minlength') 
+            && form.controls['name'].touched">
+                Name must be at least 3 symbols long
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['name'].hasError('maxlength') 
+            && form.controls['name'].touched">
+                Name cannot be longer than 60 symbols
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">DNA</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter DNA sequence"
+                formControlName="dna">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['dna'].hasError('required') 
+                && form.controls['dna'].touched">
+                DNA is required
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['dna'].hasError('minlength') 
+                && form.controls['dna'].touched">
+                DNA must be at least 10 symbols long
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['dna'].hasError('maxlength') 
+                && form.controls['dna'].touched">
+                DNA is cannot be longer than 255 symbols
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['dna'].hasError('pattern') 
+                && form.controls['dna'].touched">
+                DNA must consist only of 'A', 'T', 'G', 'C' symbols
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Patient phone number</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp"
+                placeholder="Enter patient phone number" formControlName="patientPhoneNumber">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['patientPhoneNumber'].hasError('required') 
+            && form.controls['patientPhoneNumber'].touched">
+                Patient phone number
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['patientPhoneNumber'].hasError('minlength') 
+        && form.controls['patientPhoneNumber'].touched">
+                Patient phone number must be at least 6 symbols long
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['patientPhoneNumber'].hasError('maxlength') 
+        && form.controls['patientPhoneNumber'].touched">
+                Patient phone number cannot be longer than 60 symbols
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Patient name</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter patient email"
+                formControlName="patientName">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['patientName'].hasError('required') 
+            && form.controls['patientName'].touched">
+                Patient name is required
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['patientName'].hasError('minlength') 
+        && form.controls['patientName'].touched">
+                Patient name must be at least 6 symbols long
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['patientName'].hasError('maxlength') 
+        && form.controls['patientName'].touched">
+                Patient name cannot be longer than 60 symbols
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Patient age</label>
+            <input type="number" class="form-control" aria-describedby="emailHelp" placeholder="Enter patient age"
+                formControlName="age">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['age'].hasError('required') 
+            && form.controls['age'].touched">
+                Age is required
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['age'].hasError('min') 
+            && form.controls['age'].touched">
+                Age must be at least 10
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['age'].hasError('max') 
+            && form.controls['age'].touched">
+                Age cannot be higher than 150
+            </small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Patient email address</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp"
+                placeholder="Enter patient email address" formControlName="email">
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['email'].hasError('required') 
+            && form.controls['email'].touched">
+                Email address is required
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['email'].hasError('minlength') 
+        && form.controls['email'].touched">
+                Email address must be at least 10 symbols long
+            </small>
+            <small id="emailHelp" class="form-text text-danger" *ngIf="form.controls['email'].hasError('maxlength') 
+        && form.controls['email'].touched">
+                Email address must not be at more than 60 symbols long
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary mr-3" [disabled]="form.invalid">Run test</button>
+        <button class="btn btn-primary" [routerLink]="['/']">Back to homepage</button>
+    </form>
+    <div *ngIf="testResult" class="mb-5">
+        <hr>
+        <h5>Test result</h5>
+        <input type="email" class="form-control" aria-describedby="emailHelp" [value]="testResult | number : '1.2-2'"
+            disabled=true>
+    </div>
+</div>

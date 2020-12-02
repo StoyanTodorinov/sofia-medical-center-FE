@@ -1,0 +1,17 @@
+footer {
+    bottom: 0;
+    width: 100%;
+    clear: both;
+    font-size: 12;
+    padding-top: 5px;
+    padding-bottom: 0.5px;
+    margin-top: 20px;
+    position: fixed;
+    text-align: center;
+    background-color: grey;
+}
+
+.nav-item {
+    padding:2px;
+    margin-left: 7px;
+}

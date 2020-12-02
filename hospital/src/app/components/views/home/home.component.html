@@ -1,0 +1,17 @@
+<div class="m-5" style="background-color: #fff;">
+    <div class="input-group mb-4">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">{{dropDownText}}</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" (click)="changeButtonText('Patient name')">Patient name</a>
+                <a class="dropdown-item" (click)="changeButtonText('Patient phone number')">Patient phone number</a>
+            </div>
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with dropdown button" [(ngModel)]="searchText"
+            (keydown.enter)="filterTests()" [disabled]="dropDownInputActive">
+    </div>
+    <hr>
+</div>
+<app-dna-test-list [dnaTests]="dnaTests">
+</app-dna-test-list>
