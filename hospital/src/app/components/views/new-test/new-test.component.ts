@@ -55,7 +55,6 @@ export class NewTestComponent implements OnInit, OnDestroy {
         this.subscriptionList.push(
             this.dnaService.createATest(body).subscribe((testResult: number) => {
                 this.testResult = testResult;
-                // TODO placeholder names
             })
         );
     }
